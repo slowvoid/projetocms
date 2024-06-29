@@ -8,4 +8,28 @@ public class CommentModel extends Model {
     CommentModel() {
         super();
     }
+
+    public UserModel getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(UserModel author) {
+        this.author = author;
+    }
+
+    public ContentModel getContent() {
+        return content;
+    }
+
+    public void setContent(ContentModel content) {
+        this.content = content;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
