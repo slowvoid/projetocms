@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @GetMapping("/user/create")
     public String createUser() {
-        return "Create user view";
+        System.out.println("Accessing /user/create");
+        return "create-user";
     }
 
     @GetMapping("/user/update")

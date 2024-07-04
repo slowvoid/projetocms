@@ -40,10 +40,34 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring5</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>com.hello2morrow</id>
+			<name>sonargraph-maven-plugin</name>
+			<url>https://maven.hello2morrow.com/repository</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.hello2morrow</groupId>
+				<artifactId>sonargraph-maven-plugin</artifactId>
+				
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
