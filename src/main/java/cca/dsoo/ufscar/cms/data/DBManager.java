@@ -14,6 +14,7 @@ public class DBManager {
         return _instance;
     }
 
+    @Query()
     public QueryResult[] execute(String query) {
         return (QueryResult[]) new ArrayList<QueryResult>().toArray();
     }

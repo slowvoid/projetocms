@@ -17,7 +17,51 @@
 // that you get a better idea how you can create a concise and elegant architectural blueprint
 // for your application.
 
-artifact main
+model "physical"
+
+
+artifact App
 {
-    include "main/**"
+    include "main/cca/dsoo/ufscar/cms/**"
+    
+    artifact controller
+    {
+        include "**/controller/**"
+        
+        connect to model
+        connect to view
+    }
+    
+    artifact model
+    {
+        include "**/model/**"
+        
+        connect to data.canAccessData
+    }
+    
+    local artifact data
+    {
+        include "**/data/**"
+        
+        interface default
+        {
+            include "/"
+        }
+        
+        interface canAccessData
+        {
+            include "**"
+        }
+    }
+    
+    artifact view
+    {
+        include "**/view/**"
+    }
+    
+    public artifact util
+    {
+        include "**/util/**"
+        
+    }
 }

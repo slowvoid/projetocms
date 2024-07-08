@@ -1,5 +1,9 @@
 package cca.dsoo.ufscar.cms.model;
 
+import jdk.jshell.spi.ExecutionControl;
+
+import java.util.HashMap;
+
 public class UserModel extends Model{
     private String name;
     private String email;
@@ -31,5 +35,15 @@ public class UserModel extends Model{
 
     public String GetPassword() {
         return this.password;
+    }
+
+    @Override
+    protected HashMap<String, Object> getModelMap() throws ExecutionControl.NotImplementedException {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("name", name);
+        map.put("email", email);
+        map.put("password", password);
+
+        return map;
     }
 }

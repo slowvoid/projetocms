@@ -51,23 +51,19 @@
 			<artifactId>thymeleaf-spring5</artifactId>
 			<version>3.1.2.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>com.hello2morrow</id>
-			<name>sonargraph-maven-plugin</name>
-			<url>https://maven.hello2morrow.com/repository</url>
-		</repository>
-	</repositories>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>com.hello2morrow</groupId>
-				<artifactId>sonargraph-maven-plugin</artifactId>
-				
-			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

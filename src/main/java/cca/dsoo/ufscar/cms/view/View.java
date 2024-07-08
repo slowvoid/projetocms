@@ -2,7 +2,7 @@ package cca.dsoo.ufscar.cms.view;
 
 import jdk.jshell.spi.ExecutionControl;
 
-import java.util.Dictionary;
+import java.util.HashMap;
 
 class View implements IView {
     protected String template;
@@ -10,7 +10,7 @@ class View implements IView {
         this.template = template;
     }
 
-    public void render(Dictionary<String, Object> data) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Method View.render not implemented");
+    public String render(HashMap<String, Object> data) {
+        return this.template;
     }
 }
