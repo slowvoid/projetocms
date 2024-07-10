@@ -24,6 +24,7 @@ public class UserController {
     public String createUser() {
         Logger.getInstance().log("Acessando /user/create");
         IView view = ViewFactory.createCreateUserView();
+//        CreateUserView view = new CreateUserView();
         return view.render(new HashMap<String, Object>());
     }
 

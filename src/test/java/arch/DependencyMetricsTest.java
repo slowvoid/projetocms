@@ -10,7 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-public class DependencyMetricsTest {
+public class
+DependencyMetricsTest {
     final Set<JavaPackage> packages = new ClassFileImporter()
             .importPackages("cca.dsoo.ufscar.cms").getPackage("cca.dsoo.ufscar.cms").getSubpackages();
 

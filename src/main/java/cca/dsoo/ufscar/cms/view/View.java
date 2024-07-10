@@ -4,6 +4,7 @@ import jdk.jshell.spi.ExecutionControl;
 
 import java.util.HashMap;
 
+@PackageVisibility
 class View implements IView {
     protected String template;
     public View(String template) {

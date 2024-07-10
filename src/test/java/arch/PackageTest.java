@@ -1,5 +1,8 @@
 package arch;
 
+import cca.dsoo.ufscar.cms.view.PackageVisibility;
+import com.tngtech.archunit.base.DescribedPredicate;
+import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.library.metrics.MetricsComponent;
 import com.tngtech.archunit.library.metrics.ArchitectureMetrics;
@@ -19,8 +22,9 @@ public class PackageTest {
     @ArchTest
     public static final ArchRule viewAcesso = ArchRuleDefinition.classes()
             .that().resideInAPackage("..view..")
-            .should().onlyBeAccessed().byAnyPackage("..view..", "controller")
-            .as("O pacote View pode ser acessado somente pelo(s) pacote(s) View e Controller");
+            .and().areAnnotatedWith(PackageVisibility.class)
+            .should().onlyBeAccessed().byAnyPackage("..view..")
+            .as("Classes do pacote View anotadas com @PackageVisibility somente podem ser acessadas por classes do pacote View");
 
     @ArchTest
     public static final ArchRule controllerAcesso = ArchRuleDefinition.classes()
