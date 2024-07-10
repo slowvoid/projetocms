@@ -1,21 +1,22 @@
 package cca.dsoo.ufscar.cms.model;
 
-import java.sql.Array;
-import java.util.ArrayList;
+import cca.dsoo.ufscar.cms.data.DBManager;
 
-public class Model {
+import java.util.ArrayList;
+import java.util.Map;
+
+public abstract class  Model {
     private String table;
     private String primaryKey;
+    protected DBManager dbManager = DBManager.getInstance();
 
-    Model() {}
+    public abstract Map<String, Object> getModelMap();
 
-    public void create() {}
+    public abstract void create();
 
-    public void delete() {}
+    public abstract void delete();
 
-    public void update() {}
+    public abstract void update();
 
-    public ArrayList<Model> find() {
-        return new ArrayList<Model>();
-    }
+    public abstract ArrayList<Model> find();
 }

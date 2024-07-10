@@ -1,5 +1,8 @@
 package cca.dsoo.ufscar.cms.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CommentModel extends Model {
     private UserModel author = null;
@@ -32,5 +35,30 @@ public class CommentModel extends Model {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public HashMap<String, Object> getModelMap() {
+        return null;
+    }
+
+    @Override
+    public void create() {
+
+    }
+
+    @Override
+    public void delete() {
+
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    public ArrayList<Model> find() {
+        return null;
     }
 }

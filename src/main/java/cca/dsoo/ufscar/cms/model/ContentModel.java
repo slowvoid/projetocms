@@ -1,5 +1,9 @@
 package cca.dsoo.ufscar.cms.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class ContentModel extends Model {
     private UserModel author;
     private String title;
@@ -31,5 +35,30 @@ public class ContentModel extends Model {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public HashMap<String, Object> getModelMap() {
+        return null;
+    }
+
+    @Override
+    public void create() {
+
+    }
+
+    @Override
+    public void delete() {
+
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    public ArrayList<Model> find() {
+        return null;
     }
 }
