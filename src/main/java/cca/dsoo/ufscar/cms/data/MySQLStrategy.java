@@ -1,6 +1,7 @@
 package cca.dsoo.ufscar.cms.data;
 
 import cca.dsoo.ufscar.cms.util.ConfigManager;
+import cca.dsoo.ufscar.cms.util.Logger;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -23,7 +24,7 @@ public class MySQLStrategy implements IStorageStrategy {
                 mgr.getProperty("database_pass")
             );
 
-            System.out.println("Conectado ao banco de dados");
+            Logger.getInstance().log("Conectado ao banco de dados");
         }
         catch(SQLException e) {
             throw new IllegalStateException("Não foi possível conectar ao banco de dados", e);

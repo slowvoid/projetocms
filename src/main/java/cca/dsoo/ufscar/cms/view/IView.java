@@ -5,5 +5,5 @@ import jdk.jshell.spi.ExecutionControl;
 import java.util.HashMap;
 
 public interface IView {
-    String render(HashMap<String, Object> data) throws ExecutionControl.NotImplementedException;
+    String render(HashMap<String, Object> data);
 }

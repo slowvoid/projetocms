@@ -1,6 +1,7 @@
 package cca.dsoo.ufscar.cms.data;
 
 import cca.dsoo.ufscar.cms.util.ConfigManager;
+import cca.dsoo.ufscar.cms.util.Logger;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -15,17 +16,21 @@ public class DBManager {
 
     private DBManager() {
         // Lê a estratégia do arquivo de configuração
+        Logger logger = Logger.getInstance();
         try {
             ConfigManager mgr = ConfigManager.getInstance();
             String dbStrategy = mgr.getProperty("database_strategy");
             switch (dbStrategy) {
                 case "mysql":
+                    logger.log("Usando estratégia MySQL");
                     strategy = MySQLStrategy.getInstance();
                     break;
                 case "sqlite":
+                    logger.log("Usando estratégia SQLite");
                     strategy = SQLiteStrategy.getInstance();
                     break;
                 case "file":
+                    logger.log("Usando estratégia File");
                     strategy = FileStrategy.getInstance();
                     break;
             }

@@ -19,49 +19,59 @@
 
 model "physical"
 
-
-artifact App
+artifact controller
 {
-    include "main/cca/dsoo/ufscar/cms/**"
+    include "**/controller/**"
     
-    artifact controller
-    {
-        include "**/controller/**"
-        
-        connect to model
-        connect to view
-    }
+    connect to model
+    connect to view.factory, view.viewInterfaces
+}
+
+artifact model
+{
+    include "**/model/**"
     
-    artifact model
+    connect to data
+}
+
+artifact data
+{
+    include "**/data/**"
+}
+
+artifact view
+{
+    local artifact concreteViews
     {
-        include "**/model/**"
+        include "**/view/*View" and not "**/view/ViewFactory"
         
-        connect to data.canAccessData
-    }
-    
-    local artifact data
-    {
-        include "**/data/**"
-        
-        interface default
+        interface viewInterface
         {
-            include "/"
+            include "**/IView"
         }
         
-        interface canAccessData
-        {
-            include "**"
-        }
+        connect to util
     }
     
-    artifact view
+    exposed artifact factory
     {
-        include "**/view/**"
-    }
-    
-    public artifact util
-    {
-        include "**/util/**"
+        include "**/view/ViewFactory"
         
+        connect to concreteViews
     }
+    
+    interface viewInterfaces
+    {
+        export concreteViews.viewInterface
+    }
+}
+
+public artifact util
+{
+    include "**/util/**"
+}
+
+artifact app
+{
+    include "main/cca/dsoo/ufscar/cms/CmsApplication"
 }
