@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "database_strategy": "mysql",
+  "database_connection_string": "jdbc:mysql://localhost:3306/cms",
+  "database_user": "cmsuser",
+  "database_pass": "123456"
+}
