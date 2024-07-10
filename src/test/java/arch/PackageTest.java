@@ -16,26 +16,26 @@ public class PackageTest {
     @ArchTest
     public static final ArchRule viewAcesso = ArchRuleDefinition.classes()
             .that().resideInAPackage("..view..")
-            .should().onlyBeAccessed().byAnyPackage("..view..","..util..","..controller..")
-            .as("Classes no pacote 'view' só podem acessar classes nos pacotes 'view' e 'util'.");
+            .should().onlyBeAccessed().byAnyPackage("..view..", "controller")
+            .as("O pacote View pode ser acessado somente pelo(s) pacote(s) View e Controller");
 
     @ArchTest
     public static final ArchRule controllerAcesso = ArchRuleDefinition.classes()
             .that().resideInAPackage("..controller..")
-            .should().onlyBeAccessed().byAnyPackage("..util..", "..controller..")
-            .as("Classes no pacote 'controller' só podem acessar classes nos pacotes 'view', 'controller' e 'util'.");
+            .should().onlyBeAccessed().byAnyPackage("..controller..", "..view..", "..model..")
+            .as("O pacote Controller pode ser acessado somente pelo(s) pacote(s) Controller, View e Model");
 
     @ArchTest
     public static final ArchRule modelAcesso = ArchRuleDefinition.classes()
             .that().resideInAPackage("..model..")
-            .should().onlyBeAccessed().byAnyPackage("..model..","..util..", "..data..")
-            .as("Classes no pacote 'model' só podem acessar classes nos pacotes 'model', 'data' e 'util'.");
+            .should().onlyBeAccessed().byAnyPackage("..model..", "..controller..")
+            .as("O pacote Model pode ser acessado somente pelo(s) pacote(s) Model e Controller");
 
     @ArchTest
     public static final ArchRule dataAcesso = ArchRuleDefinition.classes()
             .that().resideInAPackage("..data..")
-            .should().onlyBeAccessed().byAnyPackage("..util..","..data..")
-            .as("Classes no pacote 'model' só podem acessar classes nos pacotes 'util'.");
+            .should().onlyBeAccessed().byAnyPackage("..data..", "..model..")
+            .as("O pacote Data pode ser acessado somente pelo(s) pacote(s) Data e Model");
 
     //Verificação se as classes com anotação ou nomes estão no pacote correto
     @ArchTest
