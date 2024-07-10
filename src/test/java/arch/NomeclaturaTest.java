@@ -17,7 +17,7 @@ public class NomeclaturaTest {
     @ArchTest
     public static final ArchRule modelNomenclatura = ArchRuleDefinition.classes().that()
             .resideInAPackage("..model..").should().haveSimpleNameEndingWith("Model")
-        .orShould().haveNameMatching(".*Model.*");
+            .orShould().haveNameMatching(".*Model.*");
 
     @ArchTest
     public static final ArchRule viewNomenclatura = ArchRuleDefinition.classes().that()

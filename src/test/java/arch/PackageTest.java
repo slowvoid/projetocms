@@ -1,6 +1,8 @@
 package arch;
 
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.library.metrics.MetricsComponent;
+import com.tngtech.archunit.library.metrics.ArchitectureMetrics;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AnalyzeClasses(packages = "cca.dsoo.ufscar.cms")
 public class PackageTest {
+
 
     //ATRIBUTOS
 
