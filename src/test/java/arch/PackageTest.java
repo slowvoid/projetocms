@@ -22,8 +22,8 @@ public class PackageTest {
     @ArchTest
     public static final ArchRule controllerAcesso = ArchRuleDefinition.classes()
             .that().resideInAPackage("..controller..")
-            .should().onlyBeAccessed().byAnyPackage("..controller..", "..view..", "..model..")
-            .as("O pacote Controller pode ser acessado somente pelo(s) pacote(s) Controller, View e Model");
+            .should().onlyBeAccessed().byAnyPackage("..controller..")
+            .as("O pacote Controller pode ser acessado somente pelo(s) pacote(s) Controller");
 
     @ArchTest
     public static final ArchRule modelAcesso = ArchRuleDefinition.classes()
