@@ -20,45 +20,45 @@ public class PackageTest {
 
     //Verificação do pacotes que podem acessar as classes
     @ArchTest
-    public static final ArchRule viewAcesso = ArchRuleDefinition.classes()
+    public static final ArchRule pacoteViewRegrasAcessoClassesVisibilidadePacote = ArchRuleDefinition.classes()
             .that().resideInAPackage("..view..")
             .and().areAnnotatedWith(PackageVisibility.class)
             .should().onlyBeAccessed().byAnyPackage("..view..")
             .as("Classes do pacote View anotadas com @PackageVisibility somente podem ser acessadas por classes do pacote View");
 
     @ArchTest
-    public static final ArchRule controllerAcesso = ArchRuleDefinition.classes()
+    public static final ArchRule pacoteControllerRegrasAcessoAoPacote = ArchRuleDefinition.classes()
             .that().resideInAPackage("..controller..")
             .should().onlyBeAccessed().byAnyPackage("..controller..")
             .as("O pacote Controller pode ser acessado somente pelo(s) pacote(s) Controller");
 
     @ArchTest
-    public static final ArchRule modelAcesso = ArchRuleDefinition.classes()
+    public static final ArchRule pacoteModelRegrasAcessoAoPacote = ArchRuleDefinition.classes()
             .that().resideInAPackage("..model..")
             .should().onlyBeAccessed().byAnyPackage("..model..", "..controller..")
             .as("O pacote Model pode ser acessado somente pelo(s) pacote(s) Model e Controller");
 
     @ArchTest
-    public static final ArchRule dataAcesso = ArchRuleDefinition.classes()
+    public static final ArchRule pacoteDataRegrasAcessoAoPacote = ArchRuleDefinition.classes()
             .that().resideInAPackage("..data..")
             .should().onlyBeAccessed().byAnyPackage("..data..", "..model..")
             .as("O pacote Data pode ser acessado somente pelo(s) pacote(s) Data e Model");
 
     //Verificação se as classes com anotação ou nomes estão no pacote correto
     @ArchTest
-    public final ArchRule controllerClasses = ArchRuleDefinition.classes()
+    public final ArchRule classesControllerEstaoNoPacoteCerto = ArchRuleDefinition.classes()
             .that().areAnnotatedWith(RestController.class).or().haveNameMatching(".*Controller.*")
             .should().resideInAPackage("..controller..")
             .as("Classes controller devem ficar no pacote controller");
 
     @ArchTest
-    public final ArchRule modelClasses = ArchRuleDefinition.classes()
+    public final ArchRule classesModelEstaoNoPacoteCerto = ArchRuleDefinition.classes()
             .that().haveNameMatching(".*Model.*")
             .should().resideInAPackage("..model..")
             .as("Classes model devem ficar no pacote model");
 
     @ArchTest
-    public final ArchRule viewClasses = ArchRuleDefinition.classes()
+    public final ArchRule classesViewEstaoNoPacoteCerto = ArchRuleDefinition.classes()
             .that().haveNameMatching(".*View.*")
             .should().resideInAPackage("..view..")
             .as("Classes view devem ficar no pacote view");
